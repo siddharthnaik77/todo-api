@@ -8,7 +8,7 @@
   {
     "id": 2,
     "name": "Complete project proposal",
-    "description": "Finish the Q1 project proposal for the team",
+    "description": "Finish the Q1 project proposal for the team.",
     "status": "Complete"
   },
   {
@@ -16,11 +16,5 @@
     "name": "Fix bug in login flow",
     "description": "Users are getting logged out after 5 minutes",
     "status": "Incomplete"
-  },
-  {
-    "id": 4,
-    "name": "Schedule meeting with client",
-    "description": "Discuss project requirements and timeline timeline ",
-    "status": "Complete"
   }
 ]

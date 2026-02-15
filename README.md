@@ -1,76 +1,125 @@
 # Todo API
 
-A simple Todo API built with Express and TypeScript, supporting both file-based and database storage modes.
+A simple Todo API built with Express and TypeScript, allowing users to manage their tasks efficiently with persistent file-based storage.
 
 ## Features
 
-- ✅ CRUD operations for tasks
-- 🔄 Toggle between file-based and database storage
-- 🔍 Filter tasks by name and status
-- 📝 Task descriptions and status tracking
+- ✅ Create, read, update, and delete tasks
+- 📝 Task management with descriptions and status tracking
+- 💾 Persistent file-based storage using JSON
+- 🚀 Built with Express.js and TypeScript
+- 🔄 CORS enabled for cross-origin requests
+- 🛠️ Environment configuration support
 
-## Project Structure
+## Prerequisites
 
-```
-src/
-├── controllers/    # Request handlers
-├── models/        # Sequelize models (for DB mode)
-├── routes/        # Express routes
-├── utils/         # File storage utilities
-└── server.ts      # Main server file
-```
+- Node.js (v14 or higher)
+- npm or yarn
 
 ## Installation
 
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd todo-api
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-## Environment Variables
-
-Create a `.env` file in the root directory:
-
+3. Create a `.env` file in the root directory (optional):
 ```env
 PORT=3000
-USE_DB=false
 NODE_ENV=development
 ```
 
-Set `USE_DB=true` to use database mode (requires Sequelize and database setup).
+## Project Structure
 
-## API Endpoints
+```
+todo-api/
+├── src/
+│   ├── server.ts                 # Express server setup
+│   ├── controllers/
+│   │   └── taskController.ts     # Task request handlers
+│   ├── models/
+│   │   └── task.ts               # Task data model
+│   ├── routes/
+│   │   └── taskRoutes.ts         # Task API routes
+│   └── utils/
+│       └── fileStorage.ts        # File storage utilities
+├── data/
+│   └── tasks.json                # Tasks database
+├── package.json                  # Project dependencies
+├── tsconfig.json                 # TypeScript configuration
+└── README.md                     # This file
+```
 
-### Get Tasks
-- **GET** `/api/tasks`
-- Query parameters: `name`, `status`
+## Available Scripts
 
-### Add Task
-- **POST** `/api/tasks`
-- Body: `{ name: string, description?: string, status?: string }`
-
-### Update Task
-- **PUT** `/api/tasks/:id`
-- Body: `{ name?: string, description?: string, status?: string }`
-
-### Delete Task
-- **DELETE** `/api/tasks/:id`
-
-## Running
-
+### Development
+Run the server in development mode with hot reload:
 ```bash
-# Development (with watch mode)
 npm run dev
+```
 
-# Build
+### Build
+Compile TypeScript to JavaScript:
+```bash
 npm run build
+```
 
-# Production
+### Production
+Run the compiled server:
+```bash
 npm start
 ```
 
-## Dependencies
+### Test
+Run tests (currently not configured):
+```bash
+npm test
+```
 
-- `express` - Web framework
-- `typescript` - Type safety
-- `dotenv` - Environment variables
-- `sequelize` - ORM (optional, for database mode)
+## API Endpoints
+
+### Tasks
+
+- **GET** `/api/tasks` - Get all tasks
+- **POST** `/api/tasks` - Create a new task
+- **GET** `/api/tasks/:id` - Get a specific task
+- **PUT** `/api/tasks/:id` - Update a task
+- **DELETE** `/api/tasks/:id` - Delete a task
+
+## Technologies Used
+
+- **Express.js** - Web framework
+- **TypeScript** - Type-safe JavaScript
+- **Node.js** - Runtime environment
+- **CORS** - Cross-Origin Resource Sharing
+- **dotenv** - Environment variable management
+
+## Development Dependencies
+
+- **ts-node** - Execute TypeScript directly
+- **nodemon** - Auto-restart on file changes
+- **@types/*** - TypeScript type definitions
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm run dev
+```
+
+3. The server will be running on `http://localhost:3000` (or the port specified in `.env`)
+
+## License
+
+ISC
