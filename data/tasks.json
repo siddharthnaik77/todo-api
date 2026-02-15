@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Buy groceries",
-    "description": "Milk, eggs, bread, and vegetables",
+    "description": "Milk, eggs, bread, and vegetables asd",
     "status": "Incomplete"
   },
   {
@@ -19,14 +19,9 @@
   },
   {
     "id": 4,
-    "name": "Update documentation",
-    "description": "Add new API endpoints to the docs",
-    "status": "Complete"
-  },
-  {
-    "id": 5,
     "name": "Schedule meeting with client",
-    "description": "Discuss project requirements and timeline",
-    "status": "Incomplete"
+    "description": "Discuss project requirements and timeline timeline ",
+    "status": "Complete"
   }
+  
 ]

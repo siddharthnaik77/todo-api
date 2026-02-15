@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getTasks,
+  getTaskById,
   addTask,
   updateTask,
   deleteTask,
@@ -12,6 +13,7 @@ const router = express.Router();
  * GET /tasks - Get all tasks with optional filtering
  */
 router.get("/", getTasks);
+router.get("/:id", getTaskById);
 
 /**
  * POST /tasks - Create a new task

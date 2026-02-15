@@ -6,9 +6,6 @@ import {
   deleteTaskFile,
 } from "../utils/fileStorage";
 
-/**
- * Get all tasks
- */
 export const getTasks = async (req: Request, res: Response) => {
   try {
     const { name, status } = req.query;
@@ -31,9 +28,25 @@ export const getTasks = async (req: Request, res: Response) => {
   }
 };
 
-/**
- * Add a new task
- */
+export const getTaskById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const tasks = await readTasks();
+    const task = tasks.find((t) => t.id === Number(id));
+
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+
+    return res.status(200).json(task);
+  } catch (error) {
+    console.error("Error fetching task:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+}; 
+
+
 export const addTask = async (req: Request, res: Response) => {
   try {
     const { name, description, status } = req.body;
@@ -50,9 +63,7 @@ export const addTask = async (req: Request, res: Response) => {
   }
 };
 
-/**
- * Update a task
- */
+
 export const updateTask = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -68,9 +79,7 @@ export const updateTask = async (req: Request, res: Response) => {
   }
 };
 
-/**
- * Delete a task
- */
+
 export const deleteTask = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
