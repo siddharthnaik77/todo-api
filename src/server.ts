@@ -8,15 +8,14 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware
 app.use(cors());
 
-// Middleware
 app.use(express.json());
 
 // Routes
 app.use("/api/tasks", taskRoutes);
 
-// Health check
 app.get("/", (req, res) => {
   res.json({ message: "Todo API is running" });
 });
